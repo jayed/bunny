@@ -1,0 +1,62 @@
+#!/bin/bash
+
+VIMBASE=~/.vim
+cd $VIMBASE
+
+function Usage {
+   echo "$0: bundlename"
+  exit
+}
+
+if [ $# -ne 1 ]; then
+  echo "Please provide one bundle name from bundle.available"
+  Usage
+fi
+
+function everything {
+  for BUNDLE in `ls bundle.available`
+  do
+    echo "Enabling $BUNDLE"
+    ln -sf ../bundle.available/$BUNDLE bundle/$BUNDLE
+  done
+  exit
+}
+
+if [ ${1} == "all" ]; then
+  everything
+fi
+
+BUNDLE=`basename $(ls -d bundle.available/${1} 2>/dev/null ) 2>/dev/null | head -1`
+
+# Do we know about this bundle?
+if [ -z $BUNDLE ]; then
+  echo "This bundle isn't in bundle.available"
+  exit 1
+fi
+
+# If BUNDLE is enabled already, it can't be a directory
+if [[ -d bundle/$BUNDLE && ! -L bundle/$BUNDLE ]]; then
+  echo "bundle/$BUNDLE is a directory & not under the control of bunny"
+  exit 1
+fi
+
+# If BUNDLE is a file, we skip it
+if [ -f bundle/$BUNDLE ]; then
+  echo "Skipping because bundle/$BUNDLE is a file"
+  exit
+fi
+
+# If BUNDLE is enabled already & a symlink it must be a git repo w/ the same HEAD as the available BUNDLE
+if [ -L bundle/$BUNDLE ]; then
+  AVHASH=`cd bundle.available/$BUNDLE && git rev-parse HEAD 2>/dev/null`
+  MYHASH=`cd bundle/$BUNDLE && git rev-parse HEAD 2>/dev/null`
+  if [ $AVHASH != $MYHASH ]; then
+    echo "bundle/$BUNDLE is a symlink to a git repo at a different rev than the available $BUNDLE"
+    exit 1
+  fi
+fi
+
+ln -sf ../bundle.available/$BUNDLE bundle/$BUNDLE
+
+echo "Enabling $BUNDLE"
+

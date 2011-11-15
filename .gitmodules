@@ -1,0 +1,156 @@
+[submodule "_vim/bundle.available/html5"]
+	path = _vim/bundle.available/html5
+	url = git://github.com/othree/html5.vim.git
+[submodule "_vim/bundle.available/hammer"]
+	path = _vim/bundle.available/hammer
+	url = git://github.com/robgleeson/hammer.vim.git
+[submodule "_vim/bundle.available/syntastic"]
+	path = _vim/bundle.available/syntastic
+	url = git://github.com/roman/syntastic.git
+[submodule "_vim/bundle.available/vimball"]
+	path = _vim/bundle.available/vimball
+	url = git://github.com/tomtom/vimball.rb.git
+[submodule "_vim/bundle.available/vimscriptuploader"]
+	path = _vim/bundle.available/vimscriptuploader
+	url = git://github.com/tomtom/vimscriptuploader.rb.git
+[submodule "_vim/bundle.available/slimv"]
+	path = _vim/bundle.available/slimv
+	url = git@github.com:jayed/slimv.git
+[submodule "_vim/bundle.available/unite"]
+	path = _vim/bundle.available/unite
+	url = git@github.com:jayed/vim-unite
+[submodule "_vim/bundle.available/screen"]
+	path = _vim/bundle.available/screen
+	url = http://github.com/ervandew/screen
+[submodule "_vim/bundle.available/unimpaired"]
+	path = _vim/bundle.available/unimpaired
+	url = http://github.com/tpope/vim-unimpaired
+[submodule "_vim/bundle.available/neocomplcache"]
+	path = _vim/bundle.available/neocomplcache
+	url = https://github.com/Shougo/neocomplcache.git
+[submodule "_vim/bundle.available/vimproc"]
+	path = _vim/bundle.available/vimproc
+	url = https://github.com/Shougo/vimproc.git
+[submodule "_vim/bundle.available/vimshell"]
+	path = _vim/bundle.available/vimshell
+	url = https://github.com/Shougo/vimshell.git
+[submodule "_vim/bundle.available/erlang-skeletons"]
+	path = _vim/bundle.available/erlang-skeletons
+	url = https://github.com/aerosol/vim-erlang-skeletons.git
+[submodule "_vim/bundle.available/pytest"]
+	path = _vim/bundle.available/pytest
+	url = https://github.com/alfredodeza/pytest.vim.git
+[submodule "_vim/bundle.available/solarized"]
+	path = _vim/bundle.available/solarized
+	url = https://github.com/altercation/vim-colors-solarized
+[submodule "_vim/bundle.available/unite-rails"]
+	path = _vim/bundle.available/unite-rails
+	url = https://github.com/basyura/unite-rails.git
+[submodule "_vim/bundle.available/pydoc"]
+	path = _vim/bundle.available/pydoc
+	url = https://github.com/fs111/pydoc.vim.git
+[submodule "_vim/bundle.available/ack"]
+	path = _vim/bundle.available/ack
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "_vim/bundle.available/pyflakes"]
+	path = _vim/bundle.available/pyflakes
+	url = https://github.com/mitechie/pyflakes-pathogen.git
+[submodule "_vim/bundle.available/snipmate"]
+	path = _vim/bundle.available/snipmate
+	url = https://github.com/msanders/snipmate.vim.git
+[submodule "_vim/bundle.available/vim"]
+	path = _vim/bundle.available/vim
+	url = https://github.com/reinh/vim-makegreen
+[submodule "_vim/bundle.available/sparkup"]
+	path = _vim/bundle.available/sparkup
+	url = https://github.com/rstacruz/sparkup.git
+[submodule "_vim/bundle.available/gundo"]
+	path = _vim/bundle.available/gundo
+	url = https://github.com/sjl/gundo.vim.git
+[submodule "_vim/bundle.available/strftimedammit"]
+	path = _vim/bundle.available/strftimedammit
+	url = https://github.com/sjl/strftimedammit.vim
+[submodule "_vim/bundle.available/minibufexpl"]
+	path = _vim/bundle.available/minibufexpl
+	url = https://github.com/sontek/minibufexpl.vim.git
+[submodule "_vim/bundle.available/rope"]
+	path = _vim/bundle.available/rope
+	url = https://github.com/sontek/rope-vim.git
+[submodule "_vim/bundle.available/quickrun"]
+	path = _vim/bundle.available/quickrun
+	url = https://github.com/thinca/vim-quickrun
+[submodule "_vim/bundle.available/ref"]
+	path = _vim/bundle.available/ref
+	url = https://github.com/thinca/vim-ref
+[submodule "_vim/bundle.available/template"]
+	path = _vim/bundle.available/template
+	url = https://github.com/thinca/vim-template
+[submodule "_vim/bundle.available/unite-history"]
+	path = _vim/bundle.available/unite-history
+	url = https://github.com/thinca/vim-unite-history
+[submodule "_vim/bundle.available/visualstar"]
+	path = _vim/bundle.available/visualstar
+	url = https://github.com/thinca/vim-visualstar
+[submodule "_vim/bundle.available/cucumber"]
+	path = _vim/bundle.available/cucumber
+	url = https://github.com/tpope/vim-cucumber.git
+[submodule "_vim/bundle.available/fugitive"]
+	path = _vim/bundle.available/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "_vim/bundle.available/git"]
+	path = _vim/bundle.available/git
+	url = https://github.com/tpope/vim-git.git
+[submodule "_vim/bundle.available/rails"]
+	path = _vim/bundle.available/rails
+	url = https://github.com/tpope/vim-rails.git
+[submodule "_vim/bundle.available/speeddating"]
+	path = _vim/bundle.available/speeddating
+	url = https://github.com/tpope/vim-speeddating.git
+[submodule "_vim/bundle.available/surround"]
+	path = _vim/bundle.available/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "_vim/bundle.available/Align"]
+	path = _vim/bundle.available/Align
+	url = https://github.com/vim-scripts/Align
+[submodule "_vim/bundle.available/LargeFile"]
+	path = _vim/bundle.available/LargeFile
+	url = https://github.com/vim-scripts/LargeFile
+[submodule "_vim/bundle.available/AutoClose"]
+	path = _vim/bundle.available/AutoClose
+	url = https://github.com/vim-scripts/AutoClose.git
+[submodule "_vim/bundle.available/pig"]
+	path = _vim/bundle.available/pig
+	url = https://github.com/vim-scripts/pig.vim.git
+[submodule "_vim/bundle.available/prettyprint"]
+	path = _vim/bundle.available/prettyprint
+	url = https://github.com/thinca/vim-prettyprint
+[submodule "_vim/bundle.available/EnhCommentify"]
+	path = _vim/bundle.available/EnhCommentify
+	url = https://github.com/vim-scripts/EnhCommentify.vim
+[submodule "_vim/bundle.available/256gray"]
+	path = _vim/bundle.available/256gray
+	url = https://github.com/vim-scripts/256-grayvim
+[submodule "_vim/bundle.available/asciidoc"]
+	path = _vim/bundle.available/asciidoc
+	url = https://github.com/vim-scripts/asciidoc.vim.git
+[submodule "_vim/bundle.available/TaskList"]
+	path = _vim/bundle.available/TaskList
+	url = https://github.com/vim-scripts/TaskList.vim.git
+[submodule "_vim/bundle.available/NERDTree"]
+	path = _vim/bundle.available/NERDTree
+	url = https://github.com/vim-scripts/The-NERD-tree.git
+[submodule "_vim/bundle.available/pep8"]
+	path = _vim/bundle.available/pep8
+	url = https://github.com/vim-scripts/pep8.git
+[submodule "_vim/bundle.available/session"]
+	path = _vim/bundle.available/session
+	url = https://github.com/vim-scripts/session.vim--Odding
+[submodule "_vim/bundle.available/command-t"]
+	path = _vim/bundle.available/command-t
+	url = https://github.com/wincent/Command-T.git
+[submodule "_vim/bundle/pathogen"]
+	path = _vim/bundle/pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule "_vim/bundle.manual/pyclewn"]
+	path = _vim/bundle.manual/pyclewn
+	url = git@github.com:jayed/pyclewn

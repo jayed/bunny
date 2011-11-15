@@ -1,0 +1,12 @@
+Don't use me!
+
+Bunny is a pre-alpha, rough, gnarly framework for managing vim
+and it's plugins on my laptop.
+
+It has, at times, had scripts that rm -rf ~/.vim without warning.
+
+Nothing is guaranteed to work. It probably won't.
+
+Hopefully, it will get better later.
+
+
