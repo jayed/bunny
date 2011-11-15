@@ -1,2 +1,4 @@
 .git
 tags
+logfile
+_vim/tmp/*
