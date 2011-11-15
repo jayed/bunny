@@ -19,6 +19,7 @@
 "  for their incredibly useful plugins.
 " }
 
+
 " Environment {
   " Basics {
     set nocompatible
@@ -27,16 +28,16 @@
   " Windows Compatible {
     " On Windows, also use '.vim' instead of 'vimfiles'; this makes synchronization
     " across (heterogeneous) systems easier.
-    if has('win32') || has('win64')
-      set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
-    endif
+      if has('win32') || has('win64')
+        set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+      endif
   " }
 
   " Setup Pathogen {
-    " The next two lines ensure that the ~/.vim/bundle/ system works
-      runtime bundle/pathogen/autoload/pathogen.vim
-      call pathogen#infect()
-      call pathogen#helptags()
+    " The next three lines ensure that the ~/.vim/bundle/ system works
+        runtime bundle/pathogen/autoload/pathogen.vim
+        call pathogen#infect()
+        call pathogen#helptags()
     " }
 " }
 
@@ -58,16 +59,14 @@
     set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
     set virtualedit=block,onemore                   " allow for cursor where there is no actual character
     " Remember cursor position in file
-    autocmd BufReadPost * normal `"
+      autocmd BufReadPost * normal `"
     " If file starts with a shebang, make it executable
-    au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod +x <afile> | endif | endif
+      au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent !chmod +x <afile> | endif | endif
 
   " Insert completion {
-    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif " close preview window automatically when we move around
-    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-    " XXX neocomplete?
-    set completeopt=menuone,longest,preview                  " don't select first item, follow typing in autocomplete
-    set pumheight=6                                          " Keep a small completion window
+    " XXX Comment these out for neocpmplete?
+    " autocmd CursorMovedI * if pumvisible() == 0|pclose|endif " close preview window automatically when we move around
+    " autocmd InsertLeave * if pumvisible() == 0|pclose|endif
   " }
 
   " Abbreviations {
@@ -145,46 +144,38 @@
     set cursorline                                      " highlight current line
     hi CursorLine cterm=bold gui=bold                   " highlight bg color of current line
 
-    " Disable the colorcolumn when switching modes.  Make sure this is the
-    " first autocmd for the filetype here
-    " autocmd FileType * setlocal colorcolumn=0
+    " see keymap section for toggles
     if exists ("&colorcolumn" )
-        " highlight columns 78 and 120 (email and code)
-        set colorcolumn=78,120
-        hi ColorColumn ctermbg=lightgrey guibg=lightgrey
-    endif
-
-    if has('cmdline_info')
-    set ruler                                           " show the ruler
-    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)  " a ruler on steroids
-    set showcmd                                         " show partial commands in status line and some characters/lines in visual mode
+      " highlight columns 78 and 120 (email and code)
+      set colorcolumn=78,120
+      hi ColorColumn ctermbg=lightgrey guibg=lightgrey
     endif
 
     if has('statusline')
-        set laststatus=2
-        " Broken down into vaguely-easily understood segments
-        set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\
-        set statusline+=%{fugitive#statusline()}            " Tim Pope's fugitive
-        set statusline+=%#warningmsg#
-        set statusline+=%{SyntasticStatuslineFlag()}        " Syntastics plugin
-        set statusline+=%*
+      set laststatus=2
+      " Broken down into vaguely-easily understood segments
+      set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\
+      set statusline+=%{fugitive#statusline()}            " Tim Pope's fugitive
+      set statusline+=%#warningmsg#
+      set statusline+=%{SyntasticStatuslineFlag()}        " Syntastics plugin
+      set statusline+=%*
     endif
   " }
 
   " Whitespace display {
     " displays tabs with :set list & displays when a line runs off-screen
-    set list
-    set listchars=tab:»·,eol:¶,trail:·,precedes:<,extends:>
-    set showbreak=↪
+      set list
+      set listchars=tab:»·,eol:¶,trail:·,precedes:<,extends:>
+      set showbreak=↪
 
     " HTML/XML files often have tabs; don't display them
-    autocmd filetype html,xml set listchars-=tab:»·
+      autocmd filetype html,xml set listchars-=tab:»·
 
     " Zap all trailing whitespace all the time
-    autocmd FileWritePre   * :call BrittSpace()
-    autocmd FileAppendPre  * :call BrittSpace()
-    autocmd FilterWritePre * :call BrittSpace()
-    autocmd BufWritePre    * :call BrittSpace()
+      autocmd FileWritePre   * :call BrittSpace()
+      autocmd FileAppendPre  * :call BrittSpace()
+      autocmd FilterWritePre * :call BrittSpace()
+      autocmd BufWritePre    * :call BrittSpace()
   " }
 " }
 
@@ -202,34 +193,34 @@
 
 " Key (re)Mappings {
   let mapleader = ","
-    " let ; be the same as :
+  " let ; be the same as :
     nnoremap ; :
-    " ,e brings up my .vimrc
+  " ,e brings up my .vimrc
     map <leader>e :sp ~/.vimrc<CR><C-W>_
-    " ,E reloads it
+  " ,E reloads it
     map <silent><leader>E :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
-    map <c-j> <c-w>j      " Easier moving in windows ctrl-jklm changes to that split
-    map <c-k> <c-w>k
-    map <c-l> <c-w>l
-    map <c-h> <c-w>h
+  map <C-j> <C-w>j      " Easier moving in windows ctrl-jklm changes to that split
+  map <C-k> <C-w>k
+  map <C-l> <C-w>l
+  map <C-h> <C-w>h
 
-    imap <C-W> <C-O><C-W> " and lets make these all work in insert mode too
+  imap <C-W> <C-O><C-W> " and lets make these all work in insert mode too
 
-    " Wrapped lines goes down/up to next row, rather than next line
+  " Wrapped lines goes down/up to next row, rather than next line
     nnoremap j gj
     nnoremap k gk
 
   " Cursor column and line toggling {
-      map <silent><leader>cl :set cursorline!<CR>
-      imap <silent><leader>cl <Esc>:set cursorline!<CR>a
-      map <silent><leader>cc :set cursorcolumn!<CR>
-      imap <silent><leader>cc <Esc>:set cursorcolumn!<CR>a"
+    map <silent><leader>cl :set cursorline!<CR>
+    imap <silent><leader>cl <Esc>:set cursorline!<CR>a
+    map <silent><leader>cc :set cursorcolumn!<CR>
+    imap <silent><leader>cc <Esc>:set cursorcolumn!<CR>a"
   " }
 
   " Fixing typos and general stupidity {
     " Write the file when we forget sudo
-        cmap w!! w !sudo tee % >/dev/null
+      cmap w!! w !sudo tee % >/dev/null
     " No more F1 for help. Avoid fat-fingering ESC
       inoremap <F1> <ESC>
       nnoremap <F1> <ESC>
@@ -262,12 +253,12 @@
 
   " OS X system copy and paste {
     if has("mac")
-        " copy
-        vnoremap <silent> <C-X><C-C> : w !pbcopy<CR>
-        " cut
-        vnoremap <silent> <C-X><C-X> !pbcopy<CR>
-        " paste
-        noremap <silent> <C-X><C-V> :set paste<CR> :r !pbpaste<CR> :set nopaste<CR>
+    " copy
+      vnoremap <silent> <C-X><C-C> : w !pbcopy<CR>
+    " cut
+      vnoremap <silent> <C-X><C-X> !pbcopy<CR>
+    " paste
+      noremap <silent> <C-X><C-V> :set paste<CR> :r !pbpaste<CR> :set nopaste<CR>
     endif
   " }
 
@@ -340,7 +331,7 @@
 
   " XXX Never quite got this working
   " Highlight every other line
-  "map <leader>H :set hls<CR>/\\n.*\\n/<CR>
+  " map <leader>H :set hls<CR>/\\n.*\\n/<CR>
 
   " Never tested this; from spf13-vim
     " Fix home and end keybindings for screen, particularly on mac
@@ -393,7 +384,7 @@
   " }
 
   " DirDiff {
-    map <leader> :DirDiff
+    map <leader>D :DirDiff
      let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.git,.hg,.svn"
   " }
 
@@ -409,12 +400,12 @@
 
    " Makegreen {
     " Run django test
-    map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
+      map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
   " }
 
   " Matchit {
     runtime bundles/matchit/plugins/matchit.vim
-    map ~ %
+    map <tab> %
   " }
 
     " Minibufexpl {
@@ -425,27 +416,29 @@
 
   " Neocomplete {
     " Basic settings {
-      " Disable AutoComplPop.
+      set completeopt=menuone,longest,preview                  " don't select first item, follow typing in autocomplete
+      set pumheight=6                                          " Keep a small completion window
+    " Disable AutoComplPop.
       let g:acp_enableAtStartup                        = 0
-      " Use neocomplcache.
+    " Use neocomplcache.
       let g:neocomplcache_enable_at_startup            = 1
-      " Use smartcase.
+    " Use smartcase.
       let g:neocomplcache_enable_smart_case            = 1
-      " Use camel case completion.
+    " Use camel case completion.
       let g:neocomplcache_enable_camel_case_completion = 1
-      " Use underbar completion.
+    " Use underbar completion.
       let g:neocomplcache_enable_underbar_completion   = 1
-      " Set minimum syntax keyword length.
+    " Set minimum syntax keyword length.
       let g:neocomplcache_min_syntax_length            = 3
       let g:neocomplcache_lock_buffer_name_pattern     = '\*ku\*'
     " }
 
     " Define dictionaries {
-      let g:neocomplcache_dictionary_filetype_lists = {
-          \ 'default' : '',
-          \ 'vimshell' : $HOME.'/.vimshell_hist',
-          \ 'scheme' : $HOME.'/.gosh_completions'
-          \ }
+        let g:neocomplcache_dictionary_filetype_lists = {
+            \ 'default' : '',
+            \ 'vimshell' : $HOME.'/.vimshell_hist',
+            \ 'scheme' : $HOME.'/.gosh_completions'
+            \ }
     " }
 
     " Define keywords {
@@ -455,148 +448,153 @@
       let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
     " }
 
-	" Plugin key-mappings {
-   imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-   smap <C-k>     <Plug>(neocomplcache_snippets_expand)
-   inoremap <expr><C-g>     neocomplcache#undo_completion()
-   inoremap <expr><C-l>     neocomplcache#complete_common_string()
+    " Plugin key-mappings {
+    " Almost all of the default keys conflict with my vimrc
+      imap <M-k>                <Plug>(neocomplcache_snippets_expand)
+      smap <M-k>                <Plug>(neocomplcache_snippets_expand)
+      inoremap <expr><M-g>     neocomplcache#undo_completion()
+      inoremap <expr><M-p>     neocomplcache#complete_common_string()
 
-   " Recommended key-mappings.
-    " <CR>: close popup and save indent.
-    inoremap <expr><CR>  neocomplcache#close_popup() . "\<CR>"
-    " <TAB>: completion.
-     inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-    " <C-h>, <BS>: close popup and delete backword char.
-    inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-    inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-    inoremap <expr><C-y>  neocomplcache#close_popup()
-    inoremap <expr><C-e>  neocomplcache#cancel_popup()
+    " Recommended key-mappings.
+      " <CR>: close popup and save indent.
+        inoremap <expr><CR>  neocomplcache#close_popup() . "\<CR>"
+      " <TAB>: completion.
+        inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+      " <C-h>, <BS>: close popup and delete backword char.
+        inoremap <expr><M-t> neocomplcache#smart_close_popup()."\<del>"
+        inoremap <expr><BS> neocomplcache#smart_close_popup()."\<del>"
+        inoremap <expr><M-y>  neocomplcache#close_popup()
+        inoremap <expr><M-e>  neocomplcache#cancel_popup()
     " }
 
     " Enable omni completion {
-      autocmd FileType css setlocal omnifunc           = csscomplete#CompleteCSS
-      autocmd FileType html,markdown setlocal omnifunc = htmlcomplete#CompleteTags
-      autocmd FileType javascript setlocal omnifunc    = javascriptcomplete#CompleteJS
-      autocmd FileType python setlocal omnifunc        = pythoncomplete#Complete
-      autocmd FileType xml setlocal omnifunc           = xmlcomplete#CompleteTags
+        autocmd FileType css setlocal omnifunc           = csscomplete#CompleteCSS
+        autocmd FileType html,markdown setlocal omnifunc = htmlcomplete#CompleteTags
+        autocmd FileType javascript setlocal omnifunc    = javascriptcomplete#CompleteJS
+        autocmd FileType python setlocal omnifunc        = pythoncomplete#Complete
+        autocmd FileType xml setlocal omnifunc           = xmlcomplete#CompleteTags
     " }
 
     " Enable heavy omni completion {
-      if !exists('g:neocomplcache_omni_patterns')
-        let g:neocomplcache_omni_patterns = {}
-      endif
-      let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-      let g:neocomplcache_omni_patterns.php  = '[^. \t]->\h\w*\|\h\w*::'
-      let g:neocomplcache_omni_patterns.c    = '\%(\.\|->\)\h\w*'
-      let g:neocomplcache_omni_patterns.cpp  = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+        if !exists('g:neocomplcache_omni_patterns')
+          let g:neocomplcache_omni_patterns = {}
+        endif
+        let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+        let g:neocomplcache_omni_patterns.php  = '[^. \t]->\h\w*\|\h\w*::'
+        let g:neocomplcache_omni_patterns.c    = '\%(\.\|->\)\h\w*'
+        let g:neocomplcache_omni_patterns.cpp  = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
     " }
   " }
 
   " NERDTree {
     " XXX Need to do if exists everywhere
-    if exists(":NERDTree")
-      map <leader>n :NERDTreeToggle<CR>
-      nmap <leader>nt :NERDTreeFind<CR>
-      let NERDTreeIgnore=['\.pyc', '\~$', '\.git', \
-        '\.hg', '\.svn', '\.bzr', '\.aux', '\.out', '\.toc', \
-        '\.luac', '\.spl', '\sw?', '\.DS_Store?']
+      if exists(":NERDTree")
+        map <leader>n :NERDTreeToggle<CR>
+        nmap <leader>nt :NERDTreeFind<CR>
+        let NERDTreeIgnore=['\.pyc', '\~$', '\.git', '\.hg', '\.svn', '\.bzr', '\.aux', '\.out', '\.toc', '\.luac', '\.spl', '\sw?', '\.DS_Store?']
 
-      let NERDTreeShowBookmarks = 1
-      let NERDTreeChDirMode     = 0
-      let NERDTreeQuitOnOpen    = 1
-      let NERDTreeShowHidden    = 1
-    endif
+        let NERDTreeShowBookmarks = 1
+        let NERDTreeChDirMode     = 0
+        let NERDTreeQuitOnOpen    = 1
+        let NERDTreeShowHidden    = 1
+      endif
   " }
 
   " PEP8 {
-    let g:pep8_map='<leader>8'
+      let g:pep8_map='<leader>8'
   " }
 
   " pyflakes {
     " Don't let pyflakes use the quickfix window
-    let g:pyflakes_use_quickfix = 0
+      let g:pyflakes_use_quickfix = 0
   " }
 
   " pytest {
-    nmap <silent><leader>pf <Esc>:Pytest file<CR>
-    nmap <silent><leader>pc <Esc>:Pytest class<CR>
-    nmap <silent><leader>pm <Esc>:Pytest method<CR>
-    nmap <silent><leader>pn <Esc>:Pytest next<CR>
-    nmap <silent><leader>pp <Esc>:Pytest previous<CR>
-    nmap <silent><leader>pe <Esc>:Pytest error<CR>
+      if exists(':Pytest')
+        nmap <silent><leader>pf <Esc>:Pytest file<CR>
+        nmap <silent><leader>pc <Esc>:Pytest class<CR>
+        nmap <silent><leader>pm <Esc>:Pytest method<CR>
+        nmap <silent><leader>pn <Esc>:Pytest next<CR>
+        nmap <silent><leader>pp <Esc>:Pytest previous<CR>
+        nmap <silent><leader>pe <Esc>:Pytest error<CR>
+      endif
   " }
 
   " Rope -- rope is a python refactoring plugin{
     if exists(":RopeRename")
       " Jump to the definition of whatever the cursor is on
-      map <leader>j :RopeGotoDefinition<CR>
+        map <leader>j :RopeGotoDefinition<CR>
 
       " Rename whatever the cursor is on (including references to it)
-      map <leader>r :RopeRename<CR>
+        map <leader>r :RopeRename<CR>
     endif
   " }
 
   " Session {
-    map :SS :SaveSession
-    map :OS :OpenSession
+    if exists(":SaveSession")
+      map :SS :SaveSession
+      map :OS :OpenSession
+    endif
   " }
 
   " SLIMV {
-    au FileType clojure call TurnOnClojureFolding()
-    au FileType clojure compiler clj
-    au FileType clojure setlocal report=100000
+    if exists("clojure_loaded")
+      au FileType clojure call TurnOnClojureFolding()
+      au FileType clojure compiler clj
+      au FileType clojure setlocal report=100000
 
-    "let g:slimv_leader = '\'
-    let g:slimv_keybindings = 2
+      "let g:slimv_leader = '\'
+      let g:slimv_keybindings = 2
 
-    " Fix the eval mapping
-    au FileType clojure nmap <buffer> \ee \ed
+      " Fix the eval mapping
+      au FileType clojure nmap <buffer> \ee \ed
 
-    " Indent top-level form
-    au FileType clojure nmap <buffer> <localleader>= v((((((((((((=%
+      " Indent top-level form
+      au FileType clojure nmap <buffer> <localleader>= v((((((((((((=%
 
-    " Use a swank command that works, and doesn't require new app windows
-    " XXX Don't think this works. Jay.
-    au FileType clojure let g:slimv_swank_cmd='!dtach -n /tmp/dvtm-swank.sock -r winch lein swank'
+      " Use a swank command that works, and doesn't require new app windows
+      " XXX Don't think this works. Jay.
+      au FileType clojure let g:slimv_swank_cmd='!dtach -n /tmp/dvtm-swank.sock -r winch lein swank'
 
-    au BufWinEnter Slimv.REPL.clj setlocal winfixwidth
-    au BufNewFile,BufRead Slimv.REPL.clj setlocal nowrap
-    au BufWinEnter Slimv.REPL.clj normal! zR
+      au BufWinEnter Slimv.REPL.clj setlocal winfixwidth
+      au BufNewFile,BufRead Slimv.REPL.clj setlocal nowrap
+      au BufWinEnter Slimv.REPL.clj normal! zR
+    endif
   " }
 
+  " XXX Using Neocomplete instead
   " SnipMate {
-    let g:snips_author = "Jay <jay@meangrape.com>"
+  "  let g:snips_author = "Jay <jay@meangrape.com>"
   " }
 
   " Tabbar {
-  set showtabline=2
-  let g:Tb_SplitBelow=0       " put the tabbar at the top
-  let g:Tb_MaxSize=0          " auto-resize
-  let g:Tb_MoreThanOne=0      " always visible
-  let g:Tb_ModSelTarget = 1
+    set showtabline=2
+    let g:Tb_SplitBelow=0       " put the tabbar at the top
+    let g:Tb_MaxSize=0          " auto-resize
+    let g:Tb_MoreThanOne=0      " always visible
+    let g:Tb_ModSelTarget = 1
   " }
 
   " Taglist {
     " Toggle the taglist
-    map <leader>t :TlistToggle<CR>
-    let tlTokenList = ["FIXME", "TODO", "XXX", "[ACTION]", "ACTION"]
+    map <leader>t :TlistToggle<CR> let tlTokenList = ["FIXME", "TODO", "XXX", "[ACTION]", "ACTION"]
 
     " Use Exuberant ctag
-    let g:Tlist_Ctags_Cmd = "~/bin/ctags"
+      let g:Tlist_Ctags_Cmd = "~/bin/ctags"
 
     " Taglist on the right side
-    let g:Tlist_Use_Right_Window = 1
+      let g:Tlist_Use_Right_Window = 1
 
     " Set size of Taglist window
-    let g:Tlist_WinWidth = 25
+      let g:Tlist_WinWidth = 25
 
     " Tell Taglist how to speak wiki
-    let tlist_vimwiki_settings = 'wiki;h:Headers'
+      let tlist_vimwiki_settings = 'wiki;h:Headers'
   " }
 
   " Tasklist {
     " Toggle the tasklist
-    map <leader>td <Plug>TaskList
+      map <leader>td <Plug>TaskList
   " }
 
   " Unite {
@@ -606,23 +604,27 @@
   " }
 
   " vim-LaTeX {
-    let g:tex_flavor='latex'
+      let g:tex_flavor='latex'
   " }
 
   " VimProc {
     " Remap read and bang; no more 'hit enter';
     " commands are run in your vim buffer
-    nnoremap :! :VimProcBang
-    vnoremap :! :VimProcBang
-    nnoremap :read! :VimProcRead
-    vnoremap :read! :VimProcRead
+      if exists(":VimProcBang")
+        nnoremap :! :VimProcBang
+        vnoremap :! :VimProcBang
+        nnoremap :read! :VimProcRead
+        vnoremap :read! :VimProcRead
+      endif
   " }
 
   " VimWiki {
-    let g:vimwiki_list = [{'path': '~/vimwiki',
-        \ 'template_path': '~/vimwiki_html/templates',
-        \ 'template_default': 'default',
-        \ 'template_ext': '.tpl'}]
+    if exists("loaded_vimwiki")
+      let g:vimwiki_list = [{'path': '~/vimwiki',
+          \ 'template_path': '~/vimwiki_html/templates',
+          \ 'template_default': 'default',
+          \ 'template_ext': '.tpl'}]
+    endif
   " }
 " }
 
