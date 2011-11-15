@@ -154,3 +154,6 @@
 [submodule "_vim/bundle.manual/pyclewn"]
 	path = _vim/bundle.manual/pyclewn
 	url = git@github.com:jayed/pyclewn
+[submodule "_vim/bundle.available/vimwiki"]
+	path = _vim/bundle.available/vimwiki
+	url = https://github.com/vim-scripts/vimwiki.git
