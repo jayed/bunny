@@ -1,7 +1,7 @@
 " Modeline and Notes {
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker expandtab:
 "
-"  This is Jay Edward's .vimrc
+"  This is Jay Edwards' .vimrc
 "  The layout, organization, and some bits are from Steve Francia.
 "  His original is at https://github.com/spf13/spf13-vim/blob/master/.vimrc
 "
