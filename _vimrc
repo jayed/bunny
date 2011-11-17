@@ -270,12 +270,12 @@
   " }
 
   " Align text {
-    nnoremap <leader>Al :left<cr>
-    nnoremap <leader>Ac :center<cr>
-    nnoremap <leader>Ar :right<cr>
-    vnoremap <leader>Al :left<cr>
-    vnoremap <leader>Ac :center<cr>
-    vnoremap <leader>Ar :right<cr>
+    nnoremap <leader>Al :left<CR>
+    nnoremap <leader>Ac :center<CR>
+    nnoremap <leader>Ar :right<CR>
+    vnoremap <leader>Al :left<CR>
+    vnoremap <leader>Ac :center<CR>
+    vnoremap <leader>Ar :right<CR>
   " }
 
   " Toggles {
@@ -319,9 +319,9 @@
       vnoremap > >gv
 
     " change tab settings
-      map <leader>t2 :setlocal shiftwidth=2<cr>
-      map <leader>t4 :setlocal shiftwidth=
-      map <leader>t8 :setlocal shiftwidth=8<cr>
+      map <leader>t2 :setlocal shiftwidth=2<CR>
+      map <leader>t4 :setlocal shiftwidth=4<CR>
+      map <leader>t8 :setlocal shiftwidth=8<CR>
   " }
 
   " Don't need this with quickrun
@@ -340,14 +340,14 @@
 
   " Commandline mappings {
     " Smart mappings on the command line
-      cno $c e <C-\>eCurrentFileDir("e")<cr>
+      cno $c e <C-\>eCurrentFileDir("e")<CR>
       cno $d e ~/Documents/
       cno $h e ~/
       cno $j e ./
       cno $r e ~/repo
 
   " $q is very useful when browsing on the command line
-      cno $q <C-\>eDeleteTillSlash()<cr>
+      cno $q <C-\>eDeleteTillSlash()<CR>
   " }
 " }
 
