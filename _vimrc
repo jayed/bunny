@@ -412,7 +412,7 @@
       let g:miniBufExplCloseOnSelect = 1
     " }
 
-  " Neocomplete {
+  " Neocomplete; this is heavy-duty intellisense for vim {
     " Basic settings {
       set completeopt=menuone,longest,preview                  " don't select first item, follow typing in autocomplete
       set pumheight=6                                          " Keep a small completion window
