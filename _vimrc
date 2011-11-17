@@ -19,7 +19,6 @@
 "  for their incredibly useful plugins.
 " }
 
-
 " Environment {
   " Basics {
     set nocompatible
