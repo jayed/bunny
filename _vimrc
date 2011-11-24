@@ -60,7 +60,9 @@
     " Remember cursor position in file
       autocmd BufReadPost * normal `"
     " If file starts with a shebang, make it executable
-      au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent execute "!chmod a+x <afile>" | endif | endif
+      "au BufWritePost * if getline(1) =~ "^#!" | if getline(1) =~ "/bin/" | silent execute "!chmod a+x <afile>" | endif | endif
+      au BufWritePost * if getline(1) =~ "^#!" | silent execute "!chmod a+x <afile>" | :edit |  endif
+
   " Insert completion {
     " XXX Comment these out for neocpmplete?
     " autocmd CursorMovedI * if pumvisible() == 0|pclose|endif " close preview window automatically when we move around
@@ -360,7 +362,7 @@
   else
     set term=builtin_ansi       " make arrow and other keys work
     set t_Co=256
-    set background=light
+    set background=dark
     color solarized
     let g:solarized=16
   endif
