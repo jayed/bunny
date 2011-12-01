@@ -577,7 +577,8 @@
 
   " Taglist {
     " Toggle the taglist
-    map <leader>t :TlistToggle<CR> let tlTokenList = ["FIXME", "TODO", "XXX", "[ACTION]", "ACTION"]
+      map <leader>t :TlistToggle<CR>
+      let tlTokenList = ["FIXME", "TODO", "XXX", "[ACTION]", "ACTION"]
 
     " Use Exuberant ctag
       let g:Tlist_Ctags_Cmd = "~/bin/ctags"
