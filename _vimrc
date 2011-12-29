@@ -264,7 +264,7 @@
 
   " Send visual block to gist.github.com
   " from http://twitter.com/dotvimrc/status/152153735412457472
-  vnoremap <leader>G :w !gist -p -t %:e \| pbcopy<cr
+  vnoremap <leader>G :w !gist -p -t %:e \| pbcopy<cr>
 
   " Useful arrow keys {
     map <down> :bn<CR>
