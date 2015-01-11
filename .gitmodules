@@ -157,3 +157,33 @@
 [submodule "_vim/bundle.available/vimwiki"]
 	path = _vim/bundle.available/vimwiki
 	url = https://github.com/vim-scripts/vimwiki.git
+[submodule "_vim/bundle.available/buffersaurus"]
+	path = _vim/bundle.available/buffersaurus
+	url = https://github.com/vim-scripts/buffersaurus
+[submodule "dbext.vim"]
+	path = dbext.vim
+	url = https://github.com/vim-scripts/dbext.vim.git
+[submodule "_vim/bundle.available/bufexplorer"]
+	path = _vim/bundle.available/bufexplorer
+	url = https://github.com/vim-scripts/bufexplorer.zip
+[submodule "_vim/bundle.available/Buffersaurus"]
+	path = _vim/bundle.available/Buffersaurus
+	url = https://github.com/vim-scripts/Buffersaurus
+[submodule "_vim/bundle.available/dbext.vim"]
+	path = _vim/bundle.available/dbext.vim
+	url = https://github.com/vim-scripts/dbext.vim
+[submodule "_vim/bundle.available/gist.vim"]
+	path = _vim/bundle.available/gist.vim
+	url = https://github.com/vim-scripts/gist.vim
+[submodule "_vim/bundle.available/vim-latex"]
+	path = _vim/bundle.available/vim-latex
+	url = https://github.com/vim-scripts/LaTeX-Suite-aka-Vim-LaTeX
+[submodule "_vim/bundle.available/matchit"]
+	path = _vim/bundle.available/matchit
+	url = https://github.com/vim-scripts/matchit.zip
+[submodule "_vim/bundle.available/puppet"]
+	path = _vim/bundle.available/puppet
+	url = https://github.com/vim-scripts/Puppet-Syntax-Highlighting
+[submodule "_vim/bundle.available/taglist"]
+	path = _vim/bundle.available/taglist
+	url = https://github.com/vim-scripts/taglist.vim

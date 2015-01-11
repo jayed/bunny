@@ -22,6 +22,8 @@
 " Environment {
   " Basics {
     set nocompatible
+    " Don't maintain runtimepath in sessions
+    set sessionoptions-=options
   " }
 
   " Windows Compatible {
@@ -396,15 +398,6 @@
     let g:EnhCommentifyUseAltKeys = 'yes'
     vmap <leader>c <Plug>VisualComment
     vmap <leader>C <Plug>VisualDeComment
-  " }
-
-  " Gundo {
-    map <leader>g :GundoToggle<CR>
-  " }
-
-   " Makegreen {
-    " Run django test
-      map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
   " }
 
   " Matchit {
