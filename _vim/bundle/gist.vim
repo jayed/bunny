@@ -1,1 +1,0 @@
-../bundle.available/gist.vim
